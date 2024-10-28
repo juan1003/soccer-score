@@ -3,7 +3,7 @@ using namespace std;
 
 int main()
 {
-	const int players = 12;
+	const int players = 3;
 	PlayerInfo number[players];
 
 	cout << "///////////////////// Soccer Scoreboard ///////////////////\n\n";
@@ -15,7 +15,7 @@ int main()
 
 	cout << endl;
 
-	system("cls");
+	system("clear");
 
 	cout << "The Score of the players are:" << endl;
 
