@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# Build the project
+
+build_project() {
+    # Initialize an empty string for the object files
+    objects=""
+
+    # Iterate through all .c files in the current directory
+    for file in *.cpp; do
+        # Check if there are any .cpp files in the directory
+        if [[ -f "$file" ]]; then
+            # Compile each .cpp file into an object file (.o)
+            g++ -c "$file" -o "${file%.cpp}.o"
+
+            # Add the object file to the list of objects
+            objects+="${file%.cpp}.o "
+        fi
+    done
+
+    # If object files were compiled, link them into the final executable
+    if [[ -n "$objects" ]]; then
+        # Create the final executable (named "output" here, you can change it)
+        g++ $objects -o output
+
+        echo "Build successful! Executable 'output' created."
+    else
+        echo "No .cpp files found in the current directory."
+    fi
+}
+
+build_project
